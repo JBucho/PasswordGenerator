@@ -1,5 +1,8 @@
 This repository contains simple password generator.
 
+! Generator requires at least Python 3.6 due to usage of secrets module !
+
+
 Password is generated with length and strength set by a user.
 
 Password strength levels:
