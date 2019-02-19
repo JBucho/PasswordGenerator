@@ -1,5 +1,5 @@
 # password generator
-# requires least python 3.6 to use secrets
+# requires at least python 3.6 to use secrets
 
 import string
 from secrets import choice
