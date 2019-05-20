@@ -20,12 +20,7 @@ def password_gen_init():
 
         if check_gen_conditions(length, strength):
             password = generate_password(length, strength)
-        else:
-            print('\nYou gave wrong parameters for password generating.'
-                  '\nPlease, check the NOTEs and try again.')
-            return password_gen_init()
 
-        if len(password) == length:
             copy(password)  # Copping password to clipboard
 
             password_message = '\n-----------------------------' \
@@ -35,9 +30,14 @@ def password_gen_init():
 
             return password_message
 
+        else:
+            print('\nYou gave wrong parameters for password generating.'
+                  '\nPlease, check the NOTEs and try again.')
+            password_gen_init()
+
     except ValueError:
         print('\nError. Wrong input.\nInputs for strength and length has to be integer type (number).')
-        return password_gen_init()
+        password_gen_init()
 
 
 def check_gen_conditions(length, strength):
