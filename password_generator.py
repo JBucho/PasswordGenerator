@@ -25,9 +25,9 @@ def password_gen_init():
 
             password_message = (
                 "\n-----------------------------"
-                "\nGenerated password is:\n"
-                + password.center(30)
-                + "\n\n*Your password has been also copied to clipboard."
+                "\nGenerated password is:\n\n"
+                + f"{password}".center(30) +
+                "\n\n*Your password has been also copied to clipboard."
             )
 
             return password_message
