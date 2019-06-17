@@ -26,8 +26,8 @@ def password_gen_init():
             password_message = (
                 "\n-----------------------------"
                 "\nGenerated password is:\n\n"
-                + f"{password}".center(30) +
-                "\n\n*Your password has been also copied to clipboard."
+                + f"{password}".center(30)
+                + "\n\n*Your password has been also copied to clipboard."
             )
 
             return password_message
@@ -125,12 +125,17 @@ def check_password(password, strength, length):
     :param length: integer >= 1
     :return: bool -> True if password correct, False if not.
     """
+    if len(password) != length:
+        return False
+
     if strength == 1 and length >= 1:
-        if any(char.islower() for char in password):
+        if all(char.islower() for char in password):
             return True
 
     elif strength == 2 and length >= 2:
-        if any(char.islower() for char in password) and any(char.isupper() for char in password):
+        if (
+            any(char.islower()) and any(char.isupper()) for char in password
+        ) and password.isalpha():
             return True
 
     elif strength == 3 and length >= 3:
